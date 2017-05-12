@@ -50,8 +50,8 @@
             {
               list.Add(publisher.Options);
               this._logger.Info("Raising : 'publish:end' for '" + metadata.TargetName + "'", null);
-              base._eventing.RaiseEvent("publish:end", new object[] { publisher });
-              publisher.Options.TargetDatabase.RemoteEvents.Queue.QueueEvent<PublishEndRemoteEvent>(new PublishEndRemoteEvent(publisher), true, true);
+              //base._eventing.RaiseEvent("publish:end", new object[] { publisher }); Sitecore.Support.27341
+              publisher.Options.TargetDatabase.RemoteEvents.Queue.QueueEvent<PublishEndRemoteEvent>(new PublishEndRemoteEvent(publisher), true, true); // Sitecore.Support.27341
             }
           }
           bool failed = eventData.Status == PublishJobStatus.Complete;
